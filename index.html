@@ -15,7 +15,10 @@
     <div id="response"></div>
     <div id="farewell"></div>
 
-     const responses = [
+    
+    <script>
+        
+        const responses = [
             "Yes, absolutely!",
             "No, certainly not.",
             "It is certain.",
@@ -24,10 +27,8 @@
             "Don't count on it.",
             "Signs point to yes.",
             "Very doubtful."
-    
                 ];
-    <script>
-       
+        
         document.getElementById('eightBallForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const question = event.target.question.value;
