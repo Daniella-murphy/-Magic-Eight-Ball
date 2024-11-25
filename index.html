@@ -34,11 +34,10 @@
                 const randomIndex = Math.floor(Math.random() * responses.length);
                 const response = responses[randomIndex];
                 document.getElementById('response').textContent = `Answer: ${response}`;
-                
+                 document.getElementById('response').textContent = '';
                 setTimeout(() => {
                     if (confirm("Do you want to ask another question?")) {
                         document.getElementById('question').value = '';
-                        document.getElementById('response').textContent = '';
                         document.getElementById('farewell').textContent = '';
                     } else {
                         document.getElementById('farewell').textContent = 'Thank you for consulting the Magic Eight Ball. Farewell!';
