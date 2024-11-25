@@ -1,1 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Magic Eight Ball</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Magic Eight Ball</h1>
+    <form id="eightBallForm">
+        <label for="question">Ask your question:</label>
+        <input type="text" id="question" name="question" required>
+        <input type="submit" value="Shake the Magic Eight Ball">
+    </form>
+    <div id="response"></div>
+    <div id="farewell"></div>
+
+    <script>
+        const responses = [
+            "Yes, absolutely!",
+            "No, certainly not.",
+            "It is certain.",
+            "Outlook not so good.",
+            "Ask again later.",
+            "Don't count on it.",
+            "Signs point to yes.",
+            "Very doubtful."
+        ];
+
+        document.getElementById('eightBallForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const question = event.target.question.value;
+            if (question) {
+                const randomIndex = Math.floor(Math.random() * responses.length);
+                const response = responses[randomIndex];
+                document.getElementById('response').textContent = `Answer: ${response}`;
+                
+                if (confirm("Do you want to ask another question?")) {
+                    document.getElementById('question').value = '';
+                    document.getElementById('response').textContent = '';
+                    document.getElementById('farewell').textContent = '';
+                } else {
+                    document.getElementById('farewell').textContent = 'Thank you for consulting the Magic Eight Ball. Farewell!';
+                }
+            }
+        });
+    </script>
+</body>
+</html>
 
